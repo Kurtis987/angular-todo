@@ -1,0 +1,19 @@
+{
+  "name": "angular-todo",
+  "version": "1.0.0",
+  "description": "keeps track of things todo and things done",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kurtis987/angular-todo.git"
+  },
+  "author": "Kurtis Lunz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kurtis987/angular-todo/issues"
+  },
+  "homepage": "https://github.com/Kurtis987/angular-todo#readme"
+}
