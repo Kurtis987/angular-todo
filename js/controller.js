@@ -7,14 +7,15 @@ angular.module('RouteControllers', [])
 		$scope.registrationUser = {};
 		var URL = "https://morning-castle-91468.herokuapp.com/";
 
-		$scope.login = function() {
+		$scope.login = function() { 
 			UserAPIService.callAPI(URL + "accounts/api-token-auth/", $scope.data).then(function(results) {
-				$scope.token = results.data.token;
-				store.set('username',  $scope.registrationUser.username);
+				$scope.token = results.data.token; 
+				store.set('username',  $scope.user.username);
 				store.set('authToken', $scope.token);
 				console.log($scope.token);
 			}).catch(function(err) {
 				console.log(err);
+				alert("Wrong username or password.");
 			});
 		};
 
@@ -34,6 +35,40 @@ angular.module('RouteControllers', [])
 				}); 
 			}
 		};
+	})
+	.controller('LoginController', function($scope, UserAPIService, store) {
+
+		$scope.loginUser = {};
+		var URL = "https://morning-castle-91468.herokuapp.com/";
+
+		$scope.submitForm = function() {
+			if ($scope.loginForm.$valid) {
+				$scope.data = $scope.user;
+
+				UserAPIService.callAPI(URL + "accounts/api-token-auth/", $scope.data).then(function(results) {
+					$scope.token = results.data.token; 
+					store.set('username',  $scope.user.username);
+					store.set('authToken', $scope.token);
+					console.log($scope.token);
+					alert("Login Successful.");
+				}).catch(function(err) {
+					console.log(err);
+					alert("Wrong username or password.");
+				});
+			}
+		};
+	})
+	.controller('LogoutController', function($scope, store) {
+		try{
+			store.remove('username');
+			store.remove('authToken');
+			$scope.status = "You have been successfully logged out";
+		}
+		catch(err)
+		{
+			console.log(err);
+			$scope.status = "User is already logged out";
+		}
 	})
 	.controller('TodoController', function($scope, $location, TodoAPIService, store) {
 		var URL = "https://morning-castle-91468.herokuapp.com/";
