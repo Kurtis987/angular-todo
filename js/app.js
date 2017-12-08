@@ -1,4 +1,4 @@
-angular.module('TodoApp', ['ngRoute', 'RouteControllers', 'UserService', 'angular-storage', 'TodoService', 'TodoDirective']);
+angular.module('TodoApp', ['ngRoute', 'RouteControllers', 'UserService', 'angular-storage', 'TodoService', 'TodoDirective', 'NavbarDirective']);
 
 angular.module('TodoApp').config(function($locationProvider, $routeProvider) {
 	$locationProvider.html5Mode(true); // Enable href routing without hashes

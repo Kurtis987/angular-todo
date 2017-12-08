@@ -19,6 +19,13 @@
 		.dropdown-menu .divider {
 			margin: 0;
 		}
+		#status{
+		    position: relative;
+    		display: block;
+    		height: 50px;
+    		line-height: 50px;
+    		color: #9d9d9d; 
+		}
 		.navbar-nav > li.dropdown:hover > ul.dropdown-menu > li > a:hover,
 		.navbar-nav > li.dropdown:hover > ul.dropdown-menu > li > a:focus {
 		    background-color: rgb(222, 222, 222);
@@ -33,27 +40,7 @@
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<a class"navbar-brand" href="/">Angular Todo</a>
-			</div>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/">Home</a></li>
-				<li><a href="/todo">Todo</a></li>
-				<li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="/accounts/register">Register</a></li>
-		            <li class="divider"></li>
-		            <li><a href="/accounts/login">Login</a></li>
-		            <li class="divider"></li>
-		            <li><a href="/accounts/logout">Logout</a></li>
-		          </ul>
-		        </li>
-			</ul>
-		</div>
-	</nav>
+	<todo-nav ng-controller="NavController"></todo-nav>
 	<div ng-view>
 		
 	</div>
