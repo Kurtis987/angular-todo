@@ -1,6 +1,6 @@
 <div class="container">
 	<todo-table></todo-table>
-	<button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#todo-modal">Create New Todo Item</button>
+	<button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#todo-modal" ng-click="center()">Create New Todo Item</button>
 
 
 	<div class="row">
@@ -32,7 +32,7 @@
 								</select>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="center()">Close</button>
 								<button type="submit" class="btn btn-primary">Create</button>
 							</div>
 						</form>

@@ -113,7 +113,9 @@ angular.module('RouteControllers', [])
 		};
 
 		refreshTodos();
-
+		$scope.center = function() {
+			$("#todo-modal").toggleClass("center");
+		};
 		$scope.editTodo = function(id) {
 			$location.path("/todo/edit/" + id);
 		};
@@ -132,6 +134,7 @@ angular.module('RouteControllers', [])
 					TodoAPIService.createTodo(URL + "todo/", $scope.todo, $scope.authToken).then(function(results) {
 						refreshTodos(); 
 						$("#todo-modal").modal('hide');
+						center();
 						console.log(results);
 					}).catch(function(err) {
 						console.log(err);
