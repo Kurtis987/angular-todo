@@ -7,8 +7,12 @@ angular.module('UserService', [])
 			}
 		};
 		return UserAPIService;
+	})
+	.factory('UserInfoService', function() {
+		return {
+			username: ""
+		};
 	});
-
 angular.module('TodoService', [])
 	.factory('TodoAPIService', function($http) {
 		TodoAPIService = {

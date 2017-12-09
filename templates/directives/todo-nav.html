@@ -4,7 +4,7 @@
 			<a class"navbar-brand" href="/">Angular Todo</a>
 		</div>
 		<ul class="nav navbar-nav navbar-right"> 
-			<li id="status" ng-if="username">Logged in as: {{username}}</li>
+			<li id="status" ng-if="userInfoService.username">Logged in as: {{userInfoService.username}}</li>
 			<li><a href="/">Home</a></li>
 			<li><a href="/todo">Todo</a></li>
 			<li class="dropdown">
