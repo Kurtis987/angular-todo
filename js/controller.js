@@ -96,9 +96,8 @@ angular.module('RouteControllers', [])
 		if (!store.get('authToken')) {
         	$location.path("/accounts/register");
     	}
-		var URL = "https://morning-castle-91468.herokuapp.com/";
-
-	
+		var URL = "https://morning-castle-91468.herokuapp.com/"; 
+		
 		$scope.authToken = store.get('authToken');
 		$scope.username = store.get('username');
 
@@ -127,12 +126,12 @@ angular.module('RouteControllers', [])
 				console.log(err);
 			});
 		};
-
 		$scope.submitForm = function() {
 			if ($scope.todoForm.$valid) {
 				$scope.todo.username = $scope.username; 
 					TodoAPIService.createTodo(URL + "todo/", $scope.todo, $scope.authToken).then(function(results) {
-						refreshTodos();
+						refreshTodos(); 
+						$("#todo-modal").modal('hide');
 						console.log(results);
 					}).catch(function(err) {
 						console.log(err);
@@ -149,11 +148,14 @@ angular.module('RouteControllers', [])
 		}).catch(function(err) {
 			console.log(err);
 		});
+
+		$scope.cancel = function() {
+			$location.path("/todo");
+		};
 		
 		$scope.submitForm = function() {
 			if ($scope.todoForm.$valid) {
 				$scope.todo.username = $scope.username;
-			
 
 				TodoAPIService.editTodo(URL + "todo/" + id, $scope.todo, store.get('authToken')).then(function(results) {
 					$location.path("/todo");
