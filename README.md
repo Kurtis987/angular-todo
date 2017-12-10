@@ -19,11 +19,11 @@ This app uses JSON Web Tokens to authenticate users and keep them logged in. All
 
 ### Existing Features
 - Registration
-
-### Features Left to Implement
 - User Based Features
-	- Login
-	- Logout
+  - Login
+  - Logout
+  - Display user in navbar
+
 - Todo Based Features
 	- Creating Todo Items
 	- Retrieving Todo Items

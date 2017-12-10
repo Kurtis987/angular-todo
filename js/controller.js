@@ -3,6 +3,7 @@ angular.module('RouteControllers', [])
 		$scope.title = "Welcome to Angular Todo!"; 
 	})
 	.controller('NavController', function($scope, store, UserInfoService) {
+		//grab username for navbar
       	$scope.userInfoService = UserInfoService;
 		$scope.userInfoService.username = store.get('username');
 	})
@@ -26,7 +27,7 @@ angular.module('RouteControllers', [])
 				$location.path("/todo");
 			}).catch(function(err) {
 				console.log(err);
-				alert("Wrong username or password.");
+				alert("Login unsuccessful. Wrong username or password.");
 			});
 		};
 
@@ -109,12 +110,19 @@ angular.module('RouteControllers', [])
 					console.log($scope.todos);
 				}).catch(function(err) {
 					console.log(err);
+					alert("Server Error Occured. Account may have expired. Please try logging out and logging back in");
 				}); 
 		};
 
 		refreshTodos();
+
+		//center the todo-modal, or clear the center class when done
 		$scope.center = function() {
 			$("#todo-modal").toggleClass("center");
+		};
+		$scope.cleanup = function() {
+			$scope.center();
+			$("#todoForm").children("div").children("input").val("");
 		};
 		$scope.editTodo = function(id) {
 			$location.path("/todo/edit/" + id);
@@ -134,7 +142,7 @@ angular.module('RouteControllers', [])
 					TodoAPIService.createTodo(URL + "todo/", $scope.todo, $scope.authToken).then(function(results) {
 						refreshTodos(); 
 						$("#todo-modal").modal('hide');
-						center();
+						$scope.cleanup();
 						console.log(results);
 					}).catch(function(err) {
 						console.log(err);

@@ -4,7 +4,7 @@
 
 
 	<div class="row">
-		<div class="modal fade col-sm-8 col-sm-offset-2" id="todo-modal" tabindex="-1" role="dialog" aria-labelledy="todo-form-modal" aria-hidden="true">
+		<div class="modal fade col-xs-12 col-md-8 col-md-offset-2" id="todo-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledy="todo-form-modal" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -12,7 +12,7 @@
 						<h4 class="modal-title" id="todo-form-header">Todo Item</h4>
 					</div>
 					<div class="modal-body">
-						<form name="todoForm" ng-submit="submitForm()" novalidate>
+						<form name="todoForm" id="todoForm" ng-submit="submitForm()" novalidate>
 							<div class="form-group">
 								<label>Title</label>
 								<input type="text" name="title" class="form-control" ng-model="todo.title" required>
@@ -32,7 +32,7 @@
 								</select>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="center()">Close</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cleanup()">Close</button>
 								<button type="submit" class="btn btn-primary">Create</button>
 							</div>
 						</form>
