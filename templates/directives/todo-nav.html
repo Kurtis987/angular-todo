@@ -5,16 +5,16 @@
 		</div>
 		<ul class="nav navbar-nav navbar-right"> 
 			<li id="status" ng-if="userInfoService.username">Logged in as: {{userInfoService.username}}</li>
-			<li><a href="/">Home</a></li>
-			<li><a href="/todo">Todo</a></li>
+			<li><a href=".">Home</a></li>
+			<li><a href="todo">Todo</a></li>
 			<li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="/accounts/register">Register</a></li>
+	            <li><a href="accounts/register">Register</a></li>
 	            <li class="divider"></li>
-	            <li><a href="/accounts/login">Login</a></li>
+	            <li><a href="accounts/login">Login</a></li>
 	            <li class="divider"></li>
-	            <li><a href="/accounts/logout">Logout</a></li>
+	            <li><a href="accounts/logout">Logout</a></li>
 	          </ul>
 	        </li>
 		</ul>
